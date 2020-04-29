@@ -1,4 +1,4 @@
-version: "3.7"
+version: "3.2"
 
 services:
   spark-executor-builder:
@@ -6,6 +6,6 @@ services:
       context: .
     entrypoint: bash
     volumes:
-      - ./build.sh:/build.sh
+      - ./build-spark.sh:/build-spark.sh
       - ./conf:/conf
       - ./dist:/dist

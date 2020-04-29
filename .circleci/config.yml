@@ -5,18 +5,17 @@ orbs:
   docker: circleci/docker@1.0.1
 
 jobs:
-  build:
-    executor: docker/docker
+  build-spark:
+    machine: true
     steps:
       - checkout
-      - docker/install-docker-compose
       - run:
           name: Build Spark
-          command: docker-compose run spark-executor-builder /build.sh
+          command: docker-compose run spark-executor-builder /build-spark.sh
       - store_artifacts:
           path: dist
 
 workflows:
   build:
     jobs:
-      - build
+      - build-spark
