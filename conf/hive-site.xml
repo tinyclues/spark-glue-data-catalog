@@ -1,0 +1,6 @@
+<configuration>
+    <property>
+        <name>hive.metastore.client.factory.class</name>
+        <value>com.amazonaws.glue.catalog.metastore.AWSGlueDataCatalogHiveClientFactory</value>
+    </property>
+</configuration>

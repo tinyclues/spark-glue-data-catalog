@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  spark-executor-builder:
+    build:
+      context: .
+    entrypoint: bash
+    volumes:
+      - ./build.sh:/build.sh
+      - ./conf:/conf
+      - ./dist:/dist

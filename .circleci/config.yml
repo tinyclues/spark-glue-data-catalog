@@ -1,0 +1,16 @@
+---
+version: 2.1
+
+orbs:
+  aws-ecr: circleci/docker@1.0.1
+
+workflows:
+  build:
+    jobs:
+      - checkout
+      - docker/install-docker-compose
+      - run:
+          name: Build Spark
+          command: docker-compose run spark-executor-builder /build.sh
+      - store_artifacts:
+          path: dist
