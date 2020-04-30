@@ -43,5 +43,6 @@ echo :quit | ./bin/spark-shell --conf spark.jars.packages=com.amazonaws:aws-java
 cp /root/.ivy2/jars/*.jar jars
 # Create archive
 DIRNAME=spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION%.*}-glue
-cp -r /opt/spark/dist /dist/$DIRNAME
-cd /dist && tar -cvzf $DIRNAME.tgz $DIRNAME
+mv /opt/spark/dist /opt/spark/$DIRNAME
+cd /opt/spark && tar -cvzf $DIRNAME.tgz $DIRNAME
+mv $DIRNAME.tgz /dist
