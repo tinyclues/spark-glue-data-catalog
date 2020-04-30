@@ -37,12 +37,12 @@ Don't forget to also add S3 IAM permissions to be able to fetch data!
 
 ## Current release
 
-The current release uses the following versions:
-- Python 3.6
-- Spark 2.4.5
-- Hadoop 2.8.5
-- Hive 1.2.1
-- AWS SDK 1.11.682
+- 📄 [spark-2.4.5-bin-hadoop2.8-glue.tgz](https://github.com/tinyclues/spark-glue-data-catalog/releases/download/1.0/spark-2.4.5-bin-hadoop2.8-glue.tgz)
+  - Python 3.6
+  - Spark 2.4.5
+  - Hadoop 2.8.5
+  - Hive 1.2.1
+  - AWS SDK 1.11.682
 
 ## Miscellaneous
 
