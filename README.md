@@ -4,6 +4,8 @@ This project builds Apache Spark in way it is compatible with AWS Glue Data Cata
 
 It was mostly inspired by awslabs' Github project [awslabs/aws-glue-data-catalog-client-for-apache-hive-metastore][1] and its various issues and user feedbacks.
 
+⚠️ this is neither official, nor officially supported: use at your own risks!
+
 ## Usage prerequisites
 
 ### AWS credentials
@@ -50,7 +52,33 @@ Just run `make build`. Spark bundle artifact is produced in `dist/` directory.
 
 ### Use in Jupyter notebook
 
-TODO
+To use this version of pyspark in Jupyter, you need to declare a new dedicated kernel.
+
+We suppose you installed Spark in `/opt` directory and symlinked it with `/opt/spark`.
+
+Create a `kernel.json` file somewhere with following content:
+
+```json
+{
+  "display_name": "PySpark",
+  "language": "python",
+  "argv": [
+    "/opt/conda/bin/python",
+    "-m",
+    "ipykernel",
+    "-f",
+    "{connection_file}"
+  ],
+  "env": {
+    "SPARK_HOME": "/opt/spark",
+    "PYTHONPATH": "/opt/spark/python/:/opt/spark/python/lib/py4j-0.10.7-src.zip",
+    "PYTHONSTARTUP": "/opt/spark/python/pyspark/shell.py",
+    "PYSPARK_PYTHON": "/opt/conda/bin/python"
+  }
+}
+```
+
+Then, run `jupyter kernelspec install {path to kernel.json's directory}`.
 
 ## References
 
