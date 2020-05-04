@@ -15,7 +15,7 @@ for spark to be able to access AWS APIs: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS
 
 ### IAM permissions
 
-Here is an exemple of permission to allow Spark to access the Glue Catalog.
+Here is an exemple of permission to allow Spark to access the `db1.table1` in Glue Data Catalog:
 
 ```json
 {
@@ -28,12 +28,17 @@ Here is an exemple of permission to allow Spark to access the Glue Catalog.
   "Resource": [
     "arn:aws:glue:us-west-2:123456789012:catalog",      
     "arn:aws:glue:us-west-2:123456789012:database/db1",
-    "arn:aws:glue:us-west-2:123456789012:table/db1/table1"
+    "arn:aws:glue:us-west-2:123456789012:table/db1/table1",
+    "arn:aws:glue:eu-west-1:645543648911:database/default",
+    "arn:aws:glue:eu-west-1:645543648911:database/global_temp",
+    "arn:aws:glue:eu-west-1:645543648911:database/parquet"
   ]
 }
 ```
 
-Don't forget to also add S3 IAM permissions to be able to fetch data!
+Note the last 3 resources are mandatory for the the hive-compatible glue connector.
+
+Don't forget to also add S3 IAM permissions for Spark to be able to fetch table data!
 
 ## Current release
 
