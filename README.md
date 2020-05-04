@@ -53,6 +53,8 @@ Don't forget to also add S3 IAM permissions for Spark to be able to fetch table 
 
 ### Build spark-glue-data-catalog locally
 
+You need [Docker](https://docs.docker.com/) and [Docker Compose](https://docs.docker.com/compose/).
+
 Just run `make build`. Spark bundle artifact is produced in `dist/` directory.
 
 ### Use in Jupyter notebook
