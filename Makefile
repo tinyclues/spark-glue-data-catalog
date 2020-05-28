@@ -1,2 +1,2 @@
 build:
-	docker-compose run spark-executor-builder /build.sh
+	docker-compose run spark-executor-builder /build-spark.sh
