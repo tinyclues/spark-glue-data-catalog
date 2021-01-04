@@ -28,7 +28,7 @@ mvn clean package -DskipTests -pl -aws-glue-datacatalog-hive2-client
 git clone https://github.com/apache/spark.git /opt/spark
 cd /opt/spark
 git checkout tags/v$SPARK_VERSION -b v$SPARK_VERSION
-./dev/make-distribution.sh --name my-custom-spark --pip -Phadoop-${HADOOP_VERSION%.*} -Phive -Dhadoop.version=$HADOOP_VERSION -Dhive.version=$HIVE_VERSION
+./dev/make-distribution.sh --name my-custom-spark --pip -Phadoop-${HADOOP_VERSION%.*} -Phive -Phive-thriftserver -Dhadoop.version=$HADOOP_VERSION -Dhive.version=$HIVE_VERSION
 
 # ADD MISSING & BUILT JARS TO SPARK CLASSPATHS + CONFIG
 cd /opt/spark/dist
