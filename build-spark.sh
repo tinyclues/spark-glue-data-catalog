@@ -6,6 +6,7 @@ SPARK_VERSION=2.4.5
 HADOOP_VERSION=2.8.5
 HIVE_VERSION=1.2.1
 AWS_SDK_VERSION=1.11.682
+BIGQUERY_CONNECTOR_VERSION=0.18.1
 
 # BUILD HIVE FOR HIVE v1 - needed for spark client
 git clone https://github.com/apache/hive.git /opt/hive
@@ -39,7 +40,7 @@ find /opt/glue -name "*.jar" -exec cp {} jars \;
 # Copy configuration
 cp /conf/* conf
 # Copy AWS jars
-echo :quit | ./bin/spark-shell --conf spark.jars.packages=com.amazonaws:aws-java-sdk:$AWS_SDK_VERSION,org.apache.hadoop:hadoop-aws:$HADOOP_VERSION
+echo :quit | ./bin/spark-shell --conf spark.jars.packages=com.amazonaws:aws-java-sdk:$AWS_SDK_VERSION,org.apache.hadoop:hadoop-aws:$HADOOP_VERSION,com.google.cloud.spark:spark-bigquery-with-dependencies_2.11:$BIGQUERY_CONNECTOR_VERSION
 cp /root/.ivy2/jars/*.jar jars
 # Create archive
 DIRNAME=spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION%.*}-glue
