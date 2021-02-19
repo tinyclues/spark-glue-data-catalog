@@ -42,6 +42,15 @@ Note the last 3 resources are mandatory for the the glue-compatible hive connect
 
 Don't forget to also add S3 IAM permissions for Spark to be able to fetch table data!
 
+### GCP Bigquery/GCS credentials
+
+You must provide a valid path to a GCP service account file using environment variable `GOOGLE_APPLICATION_CREDENTIALS`.
+Otherwise you have to set manually an Access Token after the Spark Context is created using
+
+```python
+spark.conf.set("gcpAccessToken", "<access-token>")
+```
+
 ## Current release
 
 - 📄 [spark-2.4.5-bin-hadoop2.8-glue.tgz](https://github.com/tinyclues/spark-glue-data-catalog/releases/download/1.0/spark-2.4.5-bin-hadoop2.8-glue.tgz)
@@ -50,6 +59,7 @@ Don't forget to also add S3 IAM permissions for Spark to be able to fetch table 
   - Hadoop 2.8.5
   - Hive 1.2.1
   - AWS SDK 1.11.682
+  - Bigquery Connector 0.18.1
 
 ## Miscellaneous
 
