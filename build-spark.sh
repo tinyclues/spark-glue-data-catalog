@@ -40,7 +40,7 @@ find /opt/glue -name "*.jar" -exec cp {} jars \;
 # Copy configuration
 cp /conf/* conf
 # Copy AWS jars
-echo :quit | ./bin/spark-shell --conf spark.jars.packages=com.amazonaws:aws-java-sdk:$AWS_SDK_VERSION,org.apache.hadoop:hadoop-aws:$HADOOP_VERSION,com.google.cloud.spark:spark-bigquery-with-dependencies_2.11:$BIGQUERY_CONNECTOR_VERSION
+echo :quit | ./bin/spark-shell --conf spark.jars.packages=com.amazonaws:aws-java-sdk:$AWS_SDK_VERSION,org.apache.hadoop:hadoop-aws:$HADOOP_VERSION,com.google.cloud.spark:spark-bigquery-with-dependencies_2.11:$BIGQUERY_CONNECTOR_VERSION,com.google.cloud.bigdataoss:gcs-connector:hadoop2-2.2.0
 cp /root/.ivy2/jars/*.jar jars
 # Create archive
 DIRNAME=spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION%.*}-glue
