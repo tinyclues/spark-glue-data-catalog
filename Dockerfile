@@ -1,4 +1,4 @@
-FROM python:3.6-slim-buster
+FROM python:3.6-slim-stretch
 
 # ADD REPO FOR JDK
 RUN echo "deb http://ftp.us.debian.org/debian sid main" >> /etc/apt/sources.list \
