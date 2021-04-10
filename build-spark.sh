@@ -7,7 +7,7 @@ HADOOP_VERSION=3.2.0
 HIVE_VERSION=1.2.1
 AWS_SDK_VERSION=1.11.375
 BIGQUERY_CONNECTOR_VERSION=0.19.1
-
+#
 # BUILD HIVE FOR HIVE v1 - needed for spark client
 git clone https://github.com/apache/hive.git /opt/hive
 cd /opt/hive
