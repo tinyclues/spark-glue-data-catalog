@@ -17,7 +17,7 @@ cd /tmp/opt/hive
 # patch -p0 <HIVE-12679.branch-1.2.patch
 wget https://issues.apache.org/jira/secure/attachment/12958418/HIVE-12679.branch-2.3.patch
 patch -p0 <HIVE-12679.branch-2.3.patch
-mvn clean install -DskipTests -Phadoop-2
+mvn clean install -DskipTests -Phadoop-2 -Dspark.version=$SPARK_VERSION -Dhadoop.version=$HADOOP_VERSION
 # Related to this issue https://github.com/awslabs/aws-glue-data-catalog-client-for-apache-hive-metastore/pull/14
 mkdir -p ~/.m2/repository/org/spark-project
 cp -r ~/.m2/repository/org/apache/hive ~/.m2/repository/org/spark-project
@@ -26,7 +26,7 @@ cp -r ~/.m2/repository/org/apache/hive ~/.m2/repository/org/spark-project
 git clone https://github.com/ismailsimsek/aws-glue-data-catalog-client-for-apache-hive-metastore.git /tmp/opt/glue
 cd /tmp/opt/glue
 #sed -i '/<packaging>pom<\/packaging>/a <dependencies><dependency><groupId>org.apache.hadoop<\/groupId><artifactId>hadoop-common<\/artifactId><version>${hadoop.version}<\/version><scope>provided<\/scope><\/dependency><\/dependencies>' shims/pom.xml
-mvn clean package -DskipTests -pl -aws-glue-datacatalog-hive2-client -Dhadoop.version=$HADOOP_VERSION -Dhive2.version=$HIVE_VERSION -Dspark-hive.version=$HIVE_VERSION -Daws.sdk.version=$AWS_SDK_VERSION
+mvn clean package -DskipTests -pl -aws-glue-datacatalog-hive2-client -Dhadoop.version=$HADOOP_VERSION -Dhive2.version=$HIVE_VERSION -Daws.sdk.version=$AWS_SDK_VERSION
 
 # BUILD SPARK
 git clone --depth 1 --branch v$SPARK_VERSION https://github.com/apache/spark.git /tmp/opt/spark
