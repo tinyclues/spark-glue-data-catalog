@@ -43,7 +43,7 @@ find /tmp/opt/glue -name "*.jar" -exec cp {} jars \;
 # Copy configuration
 cp ${MYCWD}/conf/* conf
 # Copy AWS and Bigquery connector jars
-echo :quit | ./bin/spark-shell --conf spark.jars.packages=com.amazonaws:aws-java-sdk:$AWS_SDK_VERSION,org.apache.hadoop:hadoop-aws:$HADOOP_VERSION,com.google.cloud.spark:spark-bigquery-with-dependencies_2.11:$BIGQUERY_CONNECTOR_VERSION
+echo :quit | ./bin/spark-shell --conf spark.jars.packages=com.amazonaws:aws-java-sdk:$AWS_SDK_VERSION,org.apache.hadoop:hadoop-aws:$HADOOP_VERSION,com.google.cloud.spark:spark-bigquery-with-dependencies_2.12:$BIGQUERY_CONNECTOR_VERSION
 cp ~/.ivy2/jars/*.jar jars
 # Download GCS connector jar
 wget https://storage.googleapis.com/hadoop-lib/gcs/gcs-connector-hadoop2-latest.jar -P jars/
