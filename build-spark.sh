@@ -39,6 +39,7 @@ cd /tmp/opt/spark/dist
 mvn dependency:get -Dartifact=asm:asm:3.2
 mvn dependency:get -Dartifact=net.minidev:json-smart:1.3.1
 mvn dependency:get -Dartifact=org.apache.httpcomponents:httpcore:4.4.9
+mvn dependency:get -Dartifact=org.apache.httpcomponents:httpcore:4.4.11
 find /tmp/opt/glue -name "*.jar" -exec cp {} jars \;
 # Copy configuration
 cp ${MYCWD}/conf/* conf
