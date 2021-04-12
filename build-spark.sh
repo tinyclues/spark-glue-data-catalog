@@ -17,7 +17,7 @@ cd /tmp/opt/hive
 # patch -p0 <HIVE-12679.branch-1.2.patch
 wget https://issues.apache.org/jira/secure/attachment/12958418/HIVE-12679.branch-2.3.patch
 patch -p0 <HIVE-12679.branch-2.3.patch
-mvn clean install -DskipTests -Phadoop-2 -Dspark.version=$SPARK_VERSION -Dhadoop.version=$HADOOP_VERSION
+mvn clean install -DskipTests -Phadoop-2 # -Dspark.version=$SPARK_VERSION -Dhadoop.version=$HADOOP_VERSION
 # Related to this issue https://github.com/awslabs/aws-glue-data-catalog-client-for-apache-hive-metastore/pull/14
 mkdir -p ~/.m2/repository/org/spark-project
 cp -r ~/.m2/repository/org/apache/hive ~/.m2/repository/org/spark-project
