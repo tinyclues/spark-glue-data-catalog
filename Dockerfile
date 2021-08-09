@@ -15,3 +15,9 @@ RUN cd /opt \
 &&  tar zxvf /opt/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
 &&  rm apache-maven-${MAVEN_VERSION}-bin.tar.gz
 ENV PATH=/opt/apache-maven-$MAVEN_VERSION/bin:$PATH
+ENV MAVEN_HOME /opt/apache-maven-${MAVEN_VERSION}
+
+# configure the pentaho nexus repo to prevent build errors
+# similar to the following: https://github.com/apache/hudi/issues/2479
+COPY ./maven-settings.xml ${MAVEN_HOME}/conf/settings.xml
+
